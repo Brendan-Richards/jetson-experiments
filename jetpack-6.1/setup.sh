@@ -1,3 +1,12 @@
+# nvidia-l4t-core	36.4.7-20250918154033
+
+# pin snap version to fix browser issue
+# https://forums.developer.nvidia.com/t/chromium-other-browsers-not-working-after-flashing-or-updating-heres-why-and-quick-fix/338891
+snap download snapd --revision=24724 && \
+	snap ack snapd_24724.assert && \
+	sudo snap install snapd_24724.snap && \
+	sudo sudo snap refresh --hold snapd
+
 sudo apt update && sudo apt install -y \
 	nvidia-l4t-gstreamer \
 	nvidia-l4t-multimedia \
