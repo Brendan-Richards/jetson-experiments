@@ -5,7 +5,7 @@
 snap download snapd --revision=24724 && \
 	snap ack snapd_24724.assert && \
 	sudo snap install snapd_24724.snap && \
-	sudo sudo snap refresh --hold snapd
+	sudo snap refresh --hold snapd
 
 sudo apt update && sudo apt install -y \
 	nvidia-l4t-gstreamer \
