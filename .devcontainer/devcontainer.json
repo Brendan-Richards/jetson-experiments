@@ -1,11 +1,10 @@
 {
   "name": "Jetson Experiments",
   "dockerComposeFile": [
-    "../jetpack-6.2.2/docker-compose.yml",
-    "docker-compose.yml"
+    "../jetpack-6.2.2/docker-compose.yml"
   ],
   "service": "deepstream-dev",
-  "workspaceFolder": "/workspaces/jetson-experiments",
+  "workspaceFolder": "/app",
   "shutdownAction": "stopCompose",
   "customizations": {
     "vscode": {

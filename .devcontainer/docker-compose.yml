@@ -1,8 +1,0 @@
-services:
-  deepstream-dev:
-    command: sleep infinity
-    stdin_open: true
-    tty: true
-    working_dir: /workspaces/jetson-experiments
-    volumes:
-      - ..:/workspaces/jetson-experiments:cached

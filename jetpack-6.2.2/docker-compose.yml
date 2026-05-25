@@ -3,7 +3,12 @@ services:
     build:
       dockerfile: Dockerfile
       context: .
+    tty: true
+    stdin_open: true
     runtime: nvidia
+    volumes:
+      - ./src:/app/src
+      - ~/data:/app/data
     deploy:
       resources:
         reservations:
