@@ -1,0 +1,12 @@
+services:
+  deepstream-dev:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all           # Number of GPUs, or use "all"
+              capabilities: [gpu] # Required to enable GPU access

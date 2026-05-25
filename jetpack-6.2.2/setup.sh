@@ -11,7 +11,7 @@ sudo apt update && sudo apt install -y \
 	nvtop
 	
 # install docker and nvidia-docker
-sudo apt update && sudo apt install -y docker.io nvidia-container-toolkit && \
+sudo apt update && sudo apt install -y docker.io nvidia-container-toolkit docker-compose && \
 	sudo nvidia-ctk runtime configure --runtime=docker && \
 	sudo systemctl enable docker && \
 	sudo systemctl start docker && \
