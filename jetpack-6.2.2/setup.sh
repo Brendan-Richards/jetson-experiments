@@ -1,11 +1,3 @@
-# nvidia-l4t-core	36.4.7-20250918154033
-
-# pin snap version to fix browser issue
-# https://forums.developer.nvidia.com/t/chromium-other-browsers-not-working-after-flashing-or-updating-heres-why-and-quick-fix/338891
-snap download snapd --revision=24724 && \
-	snap ack snapd_24724.assert && \
-	sudo snap install snapd_24724.snap && \
-	sudo snap refresh --hold snapd
 
 sudo apt update && sudo apt install -y \
 	nvidia-l4t-gstreamer \
@@ -29,22 +21,22 @@ sudo apt update && sudo apt install -y docker.io nvidia-container-toolkit && \
 # docker run --network host --runtime nvidia nvcr.io/nvidia/l4t-base:r36.2.0 nvidia-smi
 
 # test dual cams
-# gst-launch-1.0 \
-#   nvcompositor name=comp \
-#     sink_0::xpos=0 \
-#     sink_0::ypos=0 \
-#     sink_0::width=1280 \
-#     sink_0::height=720 \
-#     sink_1::xpos=1280 \
-#     sink_1::ypos=0 \
-#     sink_1::width=1280 \
-#     sink_1::height=720 \
-#   ! 'video/x-raw(memory:NVMM),width=2560,height=720,framerate=30/1' \
-#   ! nvvidconv \
-#   ! xvimagesink sync=false \
-#   nvarguscamerasrc sensor-id=0 \
-#   ! 'video/x-raw(memory:NVMM),width=1280,height=720,framerate=30/1' \
-#   ! comp.sink_0 \
-#   nvarguscamerasrc sensor-id=1 \
-#   ! 'video/x-raw(memory:NVMM),width=1280,height=720,framerate=30/1' \
-#   ! comp.sink_1
+gst-launch-1.0 \
+  nvcompositor name=comp \
+    sink_0::xpos=0 \
+    sink_0::ypos=0 \
+    sink_0::width=1280 \
+    sink_0::height=720 \
+    sink_1::xpos=1280 \
+    sink_1::ypos=0 \
+    sink_1::width=1280 \
+    sink_1::height=720 \
+  ! 'video/x-raw(memory:NVMM),width=2560,height=720,framerate=30/1' \
+  ! nvvidconv \
+  ! xvimagesink sync=false \
+  nvarguscamerasrc sensor-id=0 \
+  ! 'video/x-raw(memory:NVMM),width=1280,height=720,framerate=30/1' \
+  ! comp.sink_0 \
+  nvarguscamerasrc sensor-id=1 \
+  ! 'video/x-raw(memory:NVMM),width=1280,height=720,framerate=30/1' \
+  ! comp.sink_1
