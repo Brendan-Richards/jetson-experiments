@@ -1,5 +1,6 @@
 
 sudo apt update && sudo apt install -y \
+  nvidia-l4t-dla-compiler \
 	nvidia-l4t-gstreamer \
 	nvidia-l4t-multimedia \
 	gstreamer1.0-tools \
