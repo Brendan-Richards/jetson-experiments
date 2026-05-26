@@ -9,6 +9,8 @@ services:
     volumes:
       - ./src:/app/src
       - ~/data:/app/data
+      - ./setup.sh:/app/setup.sh
+      - ./Dockerfile:/app/Dockerfile
     deploy:
       resources:
         reservations:
