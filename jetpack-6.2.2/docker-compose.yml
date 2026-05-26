@@ -6,6 +6,7 @@ services:
     tty: true
     stdin_open: true
     runtime: nvidia
+    network: host
     volumes:
       - ./src:/app/src
       - ~/data:/app/data
@@ -16,5 +17,5 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              count: all           # Number of GPUs, or use "all"
-              capabilities: [gpu] # Required to enable GPU access
+              count: all
+              capabilities: [gpu]
